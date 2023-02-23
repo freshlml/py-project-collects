@@ -28,7 +28,7 @@ class Ship(pygame.sprite.Sprite):
 
     def __init__(self, screen_rect):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("zoom.svg")  # todo, pygame 对svg支持度不行
+        self.image = pygame.image.load("resources/airplane.svg")  # todo, pygame 对svg支持度不行
         # ship_image = pygame.image.load("airplane-40453_640.png")
         # ship_image = pygame.transform.smoothscale(ship_image, (100, 150))  # todo png 缩小后竟然变模糊
         self.rect = self.image.get_rect()
@@ -61,7 +61,7 @@ class Alien(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.screen = screen
         # self.rect = pygame.Rect(0, 0, 30, 30)
-        self.image = pygame.image.load("al.svg")
+        self.image = pygame.image.load("resources/alien.svg")
         self.rect = self.image.get_rect()
         ll = random.randint(ship_rect.width/2, screen.get_width() - ship_rect.width/2)
         self.rect.left = ll
@@ -110,6 +110,8 @@ while True:
             if event.key == pygame.K_RIGHT and horizontal_direction & __direction['RIGHT']:
                 horizontal_direction = __direction['NO']
 
+    if finished: continue
+
     if vertical_direction or horizontal_direction:
         if vertical_direction & __direction['UP']:
             ship_rect.top -= speed
@@ -129,8 +131,6 @@ while True:
             ship_rect.top = 0
         if ship_rect.bottom > height:
             ship_rect.bottom = height
-
-    if finished: continue
 
     for bl in bls:
         bl.rect.top -= 1

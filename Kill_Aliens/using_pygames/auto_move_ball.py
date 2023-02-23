@@ -10,7 +10,7 @@ keep_moved = True
 
 screen = pygame.display.set_mode(size)
 
-ball_image = pygame.image.load("intro_ball.gif")
+ball_image = pygame.image.load("resources/intro_ball.gif")
 ball_rect = ball_image.get_rect()
 
 while True:
