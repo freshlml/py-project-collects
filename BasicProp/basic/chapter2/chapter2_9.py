@@ -20,7 +20,7 @@ wf.close()
 
 # 字符串读，编码=utf-8
 # 读出字节序列，按encoding解码成字符串，返回字符串
-rf = open("rd", 'r', encoding="utf-8")
+rf = open("models.md", 'r', encoding="utf-8")
 # sa = rf.read()        # 读取全部内容，返回字符串
 # print(type(sa))       # class<'str'>
 # print(sa)
@@ -39,7 +39,7 @@ rf.close()
 
 # 字符串读，编码=utf-8
 # 读出字节序列，按encoding解码成字符串，返回字符串
-rf = open("rd", 'r', encoding="utf-8")
+rf = open("models.md", 'r', encoding="utf-8")
 i = 1
 while i > 0:
     s = rf.read(10)  # 读取十个字符
@@ -52,7 +52,7 @@ rf.close()
 
 # 字节读，截断现象
 # 读出字节序列，返回字节序列
-rf = open("rd", 'rb')
+rf = open("models.md", 'rb')
 i = 1
 while i > 0:
     s = rf.read(10)  # 读取十个字节
