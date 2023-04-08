@@ -3,7 +3,7 @@ Python 是一种易于学习又功能强大的编程语言。它提供了高效�
 Python 优雅的语法和*动态类型*，以及*解释型语言*的本质，使它成为多数平台上写脚本和快速开发应用的理想语言。
 
 ## 安装Python
-可以在不同操作系统平台同时安装多个版本的Python。@link py_install.md
+可以在不同操作系统平台同时安装多个版本的Python。see https://github.com/freshlml/fresh/blob/dev-liuliang/markdown/utils/py_install.md
 
 ## Python解释器
 Python 解释器易于扩展，可以使用 C 或 C++（或者其他可以通过 C 调用的语言）扩展新的功能和数据类型。  

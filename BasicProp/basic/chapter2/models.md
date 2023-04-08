@@ -45,7 +45,7 @@ var_i = 123
 
 ## <class 'str'>，字符串
 字符串字面量: "中h𝄞"。字符串字面量被解析成<class 'str'>类型的对象 (<class 'str'>类的实例对象)
-- immutable: 字符串对象提供的replace,split等方法不能够修改原字符串
+- immutable: 通过<class str>类中的replace,split等方法不能够修改原字符串
 - iterable
 - hashable
 - 合并运算: s1 + s2，合并运算(协议方法)，新创建字符串对象保存s1，s2合并后的值
@@ -71,23 +71,23 @@ tuple字面量: (1, "2", [1, 2], ("3", 2))
 - 元素任意类型的对象
 - 有序
 - immutable
-- 索引取值、分片取值，@see chapter2.py/# 第二题、索引运算和分片运算
 - iterable
 - hashable
+- 索引取值、分片取值，@see chapter2.py/# 第二题、索引运算和分片运算
 
 ## <class 'list'>，列表
 列表字面量: [1, '字符串', ['2', '子列表']]
 - 元素任意类型的对象
 - 有序
 - mutable
-- 索引运算、分片运算，@see chapter2.py/# 第二题、索引运算和分片运算
 - iterable
+- 索引运算、分片运算，@see chapter2.py/# 第二题、索引运算和分片运算
 - 嵌套：二维数组m = [[1, 2, 3],
                   [4, 5, 6],
                   [7, 8, 9]]   m[0]-->[1,2,3], m[1][2]-->6
 - 相等性:    l1 = [1, [2], 3]
             l2 = [1, [3], 2]
-            print(l1 < l2)  # True, 深度优先遍历
+            print(l1 < l2)  # True, 最高有效位比较法
 - 列表解析表达式: col = [per[1] for per in m]
 - type(lst) == list or isinstance(type(lst))
 ```shell script
@@ -109,13 +109,13 @@ lst = [1, ["1", 2], "123"]
 - value可以是任意对象
 - 无序性
 - mutable
+- iterable
 - non-duplicate key
 - allow None key and None value
 - hash映射表: key的hash运算找桶，hash碰撞时比较key的值，如果key值相等，覆盖
 - d[key]: 根据key取值,没有key抛异常(与返回None值区别开来)
 - d[key]=value: 覆盖或者插入
 - 嵌套
-- iterable
 - 列表解析表达式
 
 ## <class 'set'>，集合
@@ -131,6 +131,7 @@ lst = [1, ["1", 2], "123"]
 字面量: b'1fb'，每个字符的码点必须<=0x7f，字面量被当成<class 'bytes'>类型的对象 (<class 'bytes'>类的实例对象)
 - immutable
 - hashable
+- iterable
 - 有序
 - 索引取值，分片取值
 
@@ -153,7 +154,7 @@ int b = a;      # 线程栈中创建 int类型的变量b，存储1
 a = a + 2;      # 取变量a的值，执行加法，得到3，将3存入变量a
 
 Python中<class 'int'>类的实例对象的模型:
-a = 1  # 变量a， ----                <class 'int'>的实例对象 { __class__
+a = 1  # 变量a， ----                <class 'int'>的实例对象 {
                |引用 | ---------->                            1
                 ----                                       } 
 
