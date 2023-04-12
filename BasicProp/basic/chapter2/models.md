@@ -35,7 +35,7 @@ var_i = 123
 
 ## <class 'float'>，浮点数
 浮点数字面量：3.14e-10。浮点数字面量被解析成<class 'float'>类型的对象 (<class 'float'>类的实例对象)
-- 8个字节表示的IEE745双精度浮点数
+- 8个字节表示的IEEE 754双精度浮点数
 - immutable
 - hashable
 ### 其他数字类型
