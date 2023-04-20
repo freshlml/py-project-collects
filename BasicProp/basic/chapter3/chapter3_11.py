@@ -59,24 +59,23 @@ print(hm)             # 123
 print(sp is hm)       # True
 
 
-# 运算符赋值，eg param += 1
-# 不可变对象
+# +=运算, __iadd__ 协议方法
+#
 i = 1
 j = i
-i += 1  # the same as i = i + 1
+i += 1  # class int 未定义 __iadd__ 方法. as mean as i = i + 1.
 print(i)        # 2
 print(j)        # 1
 print(i is j)   # False
-# 可变对象
+
+# class list 定义了 __iadd__协议方法
 lst = [1, 2]
 m = lst
-lst += 'new'      # the same as lst.extend(iterable), note: l = [1, 2] + 'new'合并运算类型不同时报错
+lst += 'new'      # lst = lst.__iadd__("new") { self.extend("new"); return self }
 print(lst)        # [1, 2, 'n', 'e', 'w']
 print(m)          # [1, 2, 'n', 'e', 'w']
 print(m is lst)   # True
-# lst += 3   # error: 'int' object is not iterable
-
-# note: +=可以理解成运算符重载，每一个类型只要重载了+=就可以使用+=
+# lst += 3   # error: 'int' literal 3 is not iterable
 
 
 # print函数
