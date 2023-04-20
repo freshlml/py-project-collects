@@ -10,7 +10,7 @@ print(a is b)  # True, 程序中所有的True均为同一个对象
 
 
 # 对象真值测试, __bool__协议方法, __len__协议方法
-#     if obj:  # 触发 __bool__ or __len__ 协议方法: return __bool__() or return __len__() > 0
+# if obj、while obj、逻辑运算and, or, not. 触发 __bool__ or __len__ 协议方法: return __bool__() or return __len__() > 0
 #
 # class int 类型 __bool__ 协议方法: return 整数值 != 0
 if 1:
