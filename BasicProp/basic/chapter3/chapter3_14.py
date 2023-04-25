@@ -1,5 +1,6 @@
 from collections.abc import Iterable
 from collections.abc import Iterator
+import abc
 
 # _collections_abc
 # Iterable(可迭代的): 定义了__iter__方法的对象是可迭代的(Iterable), "可迭代的"协议的定义在class Iterable中
@@ -151,5 +152,18 @@ print(n)
 print("---------2--------")
 
 
+# isinstance函数：检测对象是否是某某类型，包括继承特性；额外的，支持'virtual subclasses'
+class C(metaclass=abc.ABCMeta):
+    def __aaa__(self):  # 自定义协议方法
+        pass
+
+
+class D(object):
+    def __aaa__(self):
+        pass
+
+
+C.register(D)  # 'virtual subclasses'机制
+print(isinstance(D(), C))  # True
 
 
