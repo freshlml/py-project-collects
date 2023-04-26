@@ -14,13 +14,13 @@ print(type(cd))  # <class 'code'>
 print(cd.co_varnames)  # ('params',)
 
 
-# 函数对象设置属性(就像是为函数对象设置非static的public成员变量一样)
+# 函数对象设置属性
 function_name.public_attr = "public_attr"
 print(dir(function_name))
 
 
-# 注释，参数和返回值添加注释，给调用者以提示
-def ni(a: int, b: 'str类型' = 4) -> int:
+# 注释，参数和返回值添加类型注释，给调用者以提示
+def ni(a: int, b: str = '4') -> int:
     pass
 
 
@@ -46,7 +46,6 @@ for p in ret:
 # (11, '1-')
 # (12, '2-')
 # (13, '3-')
-if ret: print("123")
 
 lst = [[1], [2], [3]]
 ret = map(lambda x: x.append('x'), lst)
