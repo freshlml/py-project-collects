@@ -9,27 +9,34 @@ b = True
 print(a is b)  # True, 程序中所有的True均为同一个对象
 
 
-# 对象真值测试, __bool__协议方法, __len__协议方法
-# if obj、while obj、逻辑运算and, or, not. 触发 __bool__ or __len__ 协议方法: return __bool__() or return __len__() > 0
+# 对象真值测试, __bool__协议方法: return __bool__(), __len__协议方法: return __len__() > 0, return obj is not None
+# if obj、while obj、逻辑运算and, or, not.
 #
 # class int 类型 __bool__ 协议方法: return 整数值 != 0
 if 1:
-    print("整数值 != 0")
+    print("整数值 != 0")  # 整数值 != 0
 
 # class float 类型 __bool__ 协议方法: return 浮点数 != 0.0
 if 0.1:
-    print("浮点数 != 0.0")
+    print("浮点数 != 0.0")  # 浮点数 != 0.0
 
 # class str 类型 __len__ 协议方法
 if "some":
-    print("non-empty")
+    print("str non-empty is true")  # str non-empty is true
 
 # None is false
 if None:
     print("None is true")
 else:
-    print("None is false")
+    print("None is false")  # None is false
 
+
+class NonNone:
+    pass
+
+
+if NonNone():
+    print("对象真值测试: obj is not None")  # 对象真值测试: obj is not None
 
 print("-------1-------")
 
