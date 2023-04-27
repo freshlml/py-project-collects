@@ -10,13 +10,24 @@
 #     .pth指定目录
 import sys
 import string
-# todo，这里爆红但是运行不报错
-import current_dic as current_dic1
-# pycharm特殊: pycharm中运行不报错，那是因为在pycharm中运行时将工程目录(D:\\pyProjects\\BasicProp)添加到了sys.path
+
+import current_dic as current_dic1  # todo，这里爆红但是运行不报错
+print("chapter5_21:", current_dic1)
+
+# pycharm: 在pycharm中运行时将工程目录(D:\\pyProjects\\BasicProp)添加到了sys.path, 因此如下导入也能识别
 # from basic.chapter5 import current_dic as current_dic2
 
-# top-level package的子目录
-from sub import sub_dic
+# top-level package的子目录, from package.package import module or import package.package.module
+import sub.a.a_c
+print("chapter5_21:", sub)
+print("chapter5_21:", sub.a)
+print("chapter5_21:", sub.a.a_c)
+
+from sub2.b import b_c
+# print("chapter5_21:", sub2)  # error
+# print("chapter5_21:", sub2.b)  # error
+print("chapter5_21:", b_c)
+
 
 # 相对导入top-level package平级或者之上
 # from ..chapter5_t import chapter5_t  # error: attempted relative import beyond top-level package
@@ -24,16 +35,16 @@ from sub import sub_dic
 # 相对导入top-level package内或者其子目录中模块
 # from . import current_dic                  # error: 当前运行的py不能使用相对导入,cannot import name 'current_dic' from '__main__'
 
-import current_loop
-
-# sys.path: 当前py文件所在目录，标准库目录，todo
-print("chapter5_21", sys.path, sep=": ", end="\n")
+print("chapter5_21", sys.path, sep=": ", end="\n")  # 打印sys.path，sys.path的值取决于python解释器
 
 # 一般是在标准库目录中搜索到string.py
 # 很明显，如果在优先级更高的目录中存在string.py,则标准库目录中的会被覆盖
-print(string)  # <module 'string' from 'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\lib\\string_覆盖.py'>
+print("优先级: ", string)
 
-print(current_dic1)
-print(sub_dic)  # <module 'sub.sub_dic' from 'D:\\pyProjects\\BasicProp\\basic\\chapter5\\sub\\sub_dic.py'>
+
+import current_loop
+
 
 # todo,__import__
+
+
