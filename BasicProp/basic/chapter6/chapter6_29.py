@@ -2,16 +2,26 @@ from collections.abc import Iterable
 from collections.abc import Iterator
 
 
-# __iter__协议方法: def __iter__(self)
+# __iter__协议方法
 class A:
+    def __iter__(self):
+        pass
+
+
+# virtual subclass? 何时register??
+# Iterable.register(A)
+print(isinstance(A(), Iterable))  # True
+
+
+class B:
     def __iter__(self, aa):
         pass
 
 
-# 协议方法: 方法名称+参数, 协议方法隐式触发，则需要有比较固定的参数形式，eg: def 协议方法名称(*args)这样的协议方法定义，则是参数无关的
-print(isinstance(A, Iterable))  # False, 参数定义不一致???
-# for x in A():  # TypeError: __iter__() missing 1 required positional argument: 'aa'
-#    pass
+# __iter__协议方法，参数任意？
+#   for x in B():  # TypeError: __iter__() missing 1 required positional argument: 'aa'
+#       pass
+print(isinstance(B(), Iterable))  # True
 
 
 # __call__协议方法
