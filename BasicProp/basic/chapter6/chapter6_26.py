@@ -71,7 +71,9 @@ class A(B, C, metaclass=AMeta):
         self.m = lambda: print(1)
 
 
-# print(AMeta.mro())
+print(A.__class__)  # class AMeta
+print(AMeta.mro(AMeta))  # AMeta, type, object
+
 print(A.mro())  # A B E C D F object
 print(A.attr)    # e,   在A类上搜索属性, A类的mro路径 + (A类作为实例对象)A.__class__的mro路径
 print(A.attr1)   # a_meta
