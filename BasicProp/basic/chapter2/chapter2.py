@@ -190,13 +190,20 @@ print(lst)  # [1, 2, 3, 4, 5, '6'], [5:5]
 print("------2.5--------\n")
 
 
-# 第三题、del
+# 索引删除
 lst = [1, 2, 3, 4, 5]
-del lst[0]     # 按索引删除，index超界报错
+del lst[0]     # 按索引删除
 print(lst)     # [2, 3, 4, 5]
-del lst[0:2]   # 按分片删除，分片超界，自动传换成默认值，分片i>j，所缩放成[i:i]
-print(lst)     # [4, 5]
+# del lst[4]     # index超界报错: index out of range
 
+# 分片删除
+# 转化后,start>=end,不删除;start<end,删除[start,end)分片
+del lst[-5:-5]  # [0, 0]
+print(lst)      # [2, 3, 4, 5]
+del lst[-5:1]   # [0, 1]
+print(lst)      # [3, 4, 5]
+
+print("------3--------\n")
 
 # 第四题
 x = 'spam'
@@ -209,7 +216,7 @@ print("------4--------\n")
 
 # 第六题
 # d = {'a': 1, 'c': 2}
-# print(d['d'])   # 直接报错，KeyError: 'd'！！！注意
+# print(d['d'])   # 直接报错，KeyError, 与None value区分开来
 dic = {'a': 1, 'c': 2}
 print(dic)
 dic['d'] = '插入'
