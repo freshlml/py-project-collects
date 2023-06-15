@@ -31,13 +31,14 @@ print(a is bl[0])  # True
 print(c)           # a
 print(type(c))     # class<'str'>
 print(c is bl[2])  # True
-# 特殊用法: 嵌套 ((变量01, 变量02), 变量10)/[[变量01, 变量02], 变量10] = iterable,其中iter(0)也需要是iterable
+
+# 嵌套:  ((变量01, 变量02), 变量10)/[[变量01, 变量02], 变量10] = iterable
 ((param01, param02), param10) = "xp", 1
 print(param01)     # x
 for ((a, b), c) in [([1, 2], 3), [(4, 5), 6]]:
     print(a, b, c)
 
-# 变量first, *变量remain = iterable
+# remainder: 变量first, *变量remain = iterable
 first, *remain = bl
 print(first)           # s
 print(type(first))     # class<'str'>
@@ -50,7 +51,7 @@ print(remain[0] is bl[1])  # True
 *a, = "123"                # ['1', '2', '3']
 a, *b = "12"               # b只有一个值，仍然是list: ['2']
 a, *b = "1"                # b是空list: []
-
+# a, *b = ""                 # error: not enough values to unpack
 
 # 变量1 = 变量2 = 任意对象
 sp = hm = "123"
@@ -59,11 +60,12 @@ print(hm)             # 123
 print(sp is hm)       # True
 
 
-# +=运算, __iadd__ 协议方法
+# +=运算. 1. __iadd__协议方法；2. __add__协议方法
+# 只有定义了上述任一协议方法，才能进行+=运算
 #
 i = 1
 j = i
-i += 1  # class int 未定义 __iadd__ 方法. as mean as i = i + 1.
+i += 1  # class int 未定义 __iadd__ 协议方法. as mean as i = i + 1.
 print(i)        # 2
 print(j)        # 1
 print(i is j)   # False
@@ -98,6 +100,5 @@ wf.close()
 #   do something
 # sys.stdout.close()
 # sys.stdout = orig
-
 
 
