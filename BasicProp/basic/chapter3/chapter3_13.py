@@ -3,9 +3,9 @@ from collections.abc import Iterator
 import datetime
 import time
 
-# for param in iterable
+# for in语句: for param in iterable
 lst = [1, 2, '3', [1, '2']]
-for perElement in lst:  # 每次iter后拷贝引用值
+for perElement in lst:  # 每次迭代，拷贝引用值
     print(perElement, end=", ")
 
 print("\n------1------")
@@ -24,7 +24,7 @@ tm = open("tm", 'r', encoding="utf-8")
 while True:
     param = tm.readline()  # 读取一行
     # param = tm.read(10)  # 读取十个字符
-    if not param:
+    if not param:  # if str is empty
         break
     print(param, end='')
 
@@ -39,7 +39,7 @@ print("------3------")
 
 # 索引遍历: class range
 lst = [1, '5', 3, [1, '3']]
-rg = range(len(lst))  # 构造函数
+rg = range(len(lst))  # 构造 class range 类型的对象
 for i in rg:
     if (i+1) % 2 == 0:
         print(lst[i], end=' ')  # 5 [1, '3']

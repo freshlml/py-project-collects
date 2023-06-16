@@ -65,7 +65,7 @@ print(sp is hm)       # True
 #
 i = 1
 j = i
-i += 1  # class int 未定义 __iadd__ 协议方法. as mean as i = i + 1.
+i += 1  # class int 未定义 __iadd__ 协议方法，则触发__add__协议方法: i = i.__add__(1)
 print(i)        # 2
 print(j)        # 1
 print(i is j)   # False

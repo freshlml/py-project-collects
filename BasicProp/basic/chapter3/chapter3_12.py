@@ -8,10 +8,12 @@ a = True
 b = True
 print(a is b)  # True, 程序中所有的True均为同一个对象
 
-
-# 对象真值测试, __bool__协议方法: return __bool__(), __len__协议方法: return __len__() > 0, return obj is not None
-# if obj、while obj、逻辑运算and, or, not.
+# if操作(或者叫if语句): if 任意类型对象; if 其他运算返回的对象
+# (对象真值测试) 1.触发__bool__协议方法: return __bool__(); 2.触发__len__协议方法: return __len__() > 0; 3.return obj is not None
 #
+if 1 + 0:  # +运算返回class int类型对象，再执行if操作
+    pass
+
 # class int 类型 __bool__ 协议方法: return 整数值 != 0
 if 1:
     print("整数值 != 0")  # 整数值 != 0
@@ -41,7 +43,7 @@ if NonNone():
 print("-------1-------")
 
 
-# 逻辑运算， and、or、not
+# 逻辑运算: and、or、not
 # a and b:  测试对象a，如果对象a为False返回对象a(短路)[注意不是返回False对象]
 lo = 0
 ret = lo and '1'

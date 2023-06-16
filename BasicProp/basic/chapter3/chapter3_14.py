@@ -103,6 +103,7 @@ print("---------1.5--------")
 lst = [1, 2]
 ft = filter(None, lst)
 print(isinstance(ft, Iterator))  # True
+print(isinstance(ft, Iterable))  # True，a normalized Iterator always is Iterable
 print(ft.__iter__() is ft)       # True，filter的__iter__返回自身
 one = next(ft)
 two = next(ft)
