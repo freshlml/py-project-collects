@@ -15,7 +15,7 @@ print(cd.co_varnames)  # ('params',)
 
 
 # 函数对象设置属性
-function_name.public_attr = "public_attr"
+function_name.instance_attr = "instance_attr"
 print(dir(function_name))
 
 
@@ -24,7 +24,7 @@ def ni(a: int, b: str = '4') -> int:
     pass
 
 
-# 注意不要和"注解"搞混了
+# Python中使用annotation表示函数的注释(不要和Java中"注解"混淆了)
 print(ni.__annotations__)  # {'a': <class 'int'>, 'b': <class 'str'>, 'return': <class 'int'>}
 
 print("-----------------")
