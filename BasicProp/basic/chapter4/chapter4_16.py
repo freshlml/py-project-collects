@@ -1,6 +1,7 @@
 
-# 并没import builtins，调用open函数(注意在python中函数名实际上就是变量名)，使用open这个名称搜索: 从本module作用域开始搜索
-#   没有搜到，在到默认的builtins module中搜索
+# 关于builtins.py，它是pycharm生成的一个文件，该文件的内容是python解释器内置的函数，常量，类
+# python解释器内置的函数，变量，类在任意位置可访问
+# 调用open函数(注意在python中函数名实际上就是变量名)，使用open这个名称搜索: 从本module作用域开始搜索，没有搜到；再到"builtins"中搜索
 wf = open("tm", 'w', encoding="utf-8")
 wf.close()
 
@@ -40,7 +41,7 @@ param = 1
 ret_value = function_name(param, 2)  # 函数调用,通过function_name变量名称搜索，执行函数调用
 print(param is ret_value)  # True
 
-# 递归: 每次函数(或方法)调用都有一个局部作用域(想一想递归，想一想java中每一个方法调用对应线程栈中的一个栈帧)
+# 递归: 每次函数调用都有一个局部作用域
 
 # global
 global_param = "global_param"
@@ -61,7 +62,8 @@ def outer():
     n = 2
 
     def inner():
-        return 2 ** n  # 内嵌的函数，函数体中引用变量n，在执行的时候获取变量n（def执行的时候创建function，但此时并不执行函数体代码，所以此时不知道n）
+        # 内嵌的函数inner，函数体中引用变量n，在inner函数体代码执行的时候才获取变量n（def inner执行的时候创建function，但此时并不执行函数体代码）
+        return 2 ** n
     return inner
 
 
