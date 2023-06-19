@@ -26,7 +26,7 @@ print("XyApplication", xy.utils.XyUtils, sep=": ", end="\n")
 # 相对导入不能跨过top level package
 
 
-# 对当前运行的module，不能使用相对导入，因此一个程序的入口module一般在更浅的目录层次
+# 对当前运行的module，不能使用相对导入访问该module所在package的上层结构 (因为相对导入不能跨过top level package)
 
 
 # note: 在pycharm中运行时将工程目录(D:\\pyProjects\\BasicProp)添加到了sys.path, 因此如下导入也能识别
