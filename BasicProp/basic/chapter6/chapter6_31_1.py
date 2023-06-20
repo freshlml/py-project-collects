@@ -174,8 +174,10 @@ def ArgCheck(*exclude, **regulars):
 '''
 
 
-# can not check arg having default value
-# If do not want to check a arg, not write a Check and put the arg to `**` checker if the `**` checker is present.
+# todo, 函数声明的参数的默认值校验
+#   1. 获取具有默认值的参数，如b=1000, c=1000
+#   2. 按参数名称获取校验器或者获得@ArgCheck中声明的**校验器，对参数的默认值校验
+# If do not want to check a arg, not write a Check and put the parameter to `**` checker if the `**` checker is present.
 @ArgCheck(a=RangeCheck(-100, 100),
           f=NoneCheck(),
           # ff
@@ -192,6 +194,7 @@ def m1(a, f, ff, b=1000, *args, c=1000, d, e, ee, **kwargs):
 
 
 ori = m1.original
+print(dir(ori.__code__))
 print(ori.__code__.co_varnames)  # ('a', 'f', 'ff', 'b', 'c', 'd', 'e', 'ee', 'args', 'kwargs', 'lp')
 print(ori.__code__.co_varnames[:ori.__code__.co_argcount])  # ('a', 'f', 'ff', 'b')
 
