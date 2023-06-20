@@ -3,7 +3,7 @@ from collections.abc import Iterable
 
 
 # 函数式编程
-# 第一：函数式作为参数传递: 将函数作为参数传递, 这在python中有天然的优势，因为py中函数(方法)本身就是class Function的实例对象，py本身就可以传递函数(方法)
+# 第一：函数作为参数传递: 将函数作为参数传递, 这在python中有天然的优势，因为py中函数(方法)本身就是class Function的实例对象，py本身就可以传递函数(方法)
 # 第二：数据流过一系列函数: python通过迭代器实现
 #   1.流式调用:
 #       list.stream().filter(elem -> elem.isJava()).map(elem -> elem.getId()).reduce(Integer::sum)
@@ -32,7 +32,7 @@ print(ret)
 
 print("-----------1-----------")
 
-# itertools 和 sys 一样是 built-in module
+# itertools 和 sys 一样是内置模块
 import itertools
 city_list = [('Decatur', 'AL'),
              ('Huntsville', 'AL'),

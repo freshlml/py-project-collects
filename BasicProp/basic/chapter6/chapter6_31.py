@@ -16,6 +16,7 @@ class Decorator(object):
         print("Decorator after")
         return rr
 
+    # Descriptor
     def __get__(self, instance, owner):
         if instance is None:
             try:
@@ -51,9 +52,9 @@ print(type(a.m))  # class Decorator
 print(A.m is a.m)  # True
 print(a.m.original)  # class A def m
 
-# 1.A.m(a, "pp1", "pp2"), 2.__get__触发，3.Decorator.__call__(m, a, "pp1", "pp2"), 4.A.m(a, "pp1", "pp2")
+# 1、A.m, 触发__get__(m, None, A) 2、m(a, "pp1", "pp2") 3、Decorator.__call__(m, a, "pp1", "pp2") 4、A.m(a, "pp1", "pp2")
 print(A.m(a, "pp1", "pp2"))  # ('pp1', 'pp2')
-# 1.a.m("params"), 2.__get__触发，设置instance=a, 3.Decorator.__call__(m, "params"), 3.A.m(a, "params")
+# 1、a.m, 触发__get__(m, a, A), 设置instance=a 2、m("params") 3、Decorator.__call__(m, "params") 3、A.m(a, "params")
 print(a.m("params"))  # ('params',)
 
 
@@ -69,7 +70,7 @@ def f1():
 print(f1() is f1())  # False, 函数每次运行都是一个局部域
 
 
-# 使用嵌套函数实现 函数，方法装饰器
+# 使用嵌套函数实现"函数, 方法"装饰器
 def funcDecorator(original):
     def funcDecoratorImpl(*params):
         print("funcDecorator before")
@@ -121,7 +122,7 @@ class B(object):    # 1.class执行:B = class type，2.@ClzDecorator执行:B = C
 
 print(type(B))  # class ClzDecorator
 print(B.original)  # B,class type
-b = B("参数1", "参数2")  # 触发ClzDecorator.__call__
+b = B("参数1", "参数2")  # 触发ClzDecorator.__call__(B, "参数1", "参数2")
 print(type(b))  # class B
 print(b.mm())  # ('参数1', '参数2')
 
