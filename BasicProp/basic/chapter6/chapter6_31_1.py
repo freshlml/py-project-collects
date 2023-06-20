@@ -1,6 +1,6 @@
 
 
-# 函数调用传参校验，@link chapter4_8
+# 函数调用传参校验，@link chapter4_18
 class ArgCheckException(Exception):
     pass
 
@@ -174,7 +174,8 @@ def ArgCheck(*exclude, **regulars):
 '''
 
 
-# Put the argument non-wanted test to `**` checker if the `**` checker is present.
+# can not check arg having default value
+# If do not want to check a arg, not write a Check and put the arg to `**` checker if the `**` checker is present.
 @ArgCheck(a=RangeCheck(-100, 100),
           f=NoneCheck(),
           # ff
