@@ -1,5 +1,32 @@
 
 
+# 如果类指定了metaclass, 则其metaclass必须是其基类的metaclass的子类，当存在基类时
+# 如果类未指定metaclass, 则从其基类获取metaclass，当存在基类时。如果没有基类，则metaclass默认指向class type
+# 类的metaclass指向T，类的__class__指针就指向T，即类的类型为T
+class QMeta(type):
+    attr = "1"
+
+
+class Q(object, metaclass=QMeta):
+    pass
+
+
+class W(Q):
+    pass
+
+
+print(W.mro())  # W Q object
+print(W.__class__)  # class QMeta
+
+
+class R(W):
+    pass
+
+
+print(R.__class__)  # class QMeta
+print("--------------------metaclass规则---------------------")
+
+
 class A(object):
     def __init__(self):
         pass
@@ -100,6 +127,21 @@ print(spam.tag, spam.param)  # tag param
 spam()  # Spam __call__
 
 
-# 类的类型是其元类，元类的类型是其元类, 最上层元类的类型是class type
-# 类执行: 触发元类的元类的__call__, 调用元类的__new__,__init__
-# 类调用: 触发元类的__call__
+# metaclass conflict, LM继承PM即可
+class PM(type):
+    pass
+
+
+class P(metaclass=PM):
+    pass
+
+
+class LM(type):
+    pass
+
+
+class L(P, metaclass=LM):
+    pass
+
+
+
