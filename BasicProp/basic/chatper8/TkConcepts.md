@@ -104,7 +104,49 @@ The following are some of the most useful methods:
 - *winfo_vieweable*: whether the widget is displayed or hidden (all its ancestors in the hierarchy must be viewable for it to be viewable)
 
 
+# Geometry Management
+Widgets don't appear on the screen just by creating them.  
+**Placing widgets on the screen (and precisely where they are placed)** is a separate step called *geometry management*.  
 
+As the tk_sample showed, grid is a selection of *geometry management* of which there are several in Tk (pack, place, grid), grid being the most useful.  
+
+A geometry manager's job is to figure out exactly where those widgets are going to be put. This turns out to be a complex optimization problem, 
+and a good geometry manager relies on quite sophisticated(复杂的) algorithms. A good geometry manager provides the flexibility, power, and ease of use that makes programmers happy.  
+It also makes it easy to create appealing(有吸引力的) user interface layouts without needing to jump through hoops. Tk's grid is, without a doubt, one of the absolute best.  
+A poor geometry manager... well, all the Java programmers who have suffered through "GridBagLayout" please raise their hands.  
+
+## Considering
+The geometry manager has to balance multiple constraints(约束). Consider these situations:  
+1. The widgets may have a *natural size*, e.g., the natural width of a label would depend on the text it displays and the font used to display it.
+    - What if the application window containing all these different widgets isn't big enough to accommodate(容纳) them? 
+    - The geometry manager must decide which widgets to shrink(收缩) to fit, by how much, etc.
+2. If the application window is bigger than the natural size of all the widgets.
+    - How is the extra space used? Is extra space placed between each widget, and if so, how is that space distributed(被分配)? 
+    - Is it used to make certain widgets larger than they usually are, such as a text entry growing to fill a wider window? Which widgets should grow?
+3. If the application window is resized, how does the **size** and **position** of each widget inside it change? 
+    - Will certain areas (e.g., a text entry area) expand or shrink while other parts stay the same size, or is the area distributed differently?
+    - Do certain widgets have a minimum size that you want to avoid going below? A maximum size? Does the window itself have a minimum or maximum size?
+4. How can widgets in different parts of the user interface be aligned with each other? 
+    - How much space should be left between them? This is needed to present a clean layout and comply with platform-specific user interface guidelines.
+5. For a complex user interface, which may have many frames nested in other frames nested in the window (etc.).
+    - How can all the above be accomplished, trading off the conflicting demands of different parts of the entire user interface?
+
+## How it Works
+Geometry management in Tk relies on the concept of **master** and **slave** widgets.  
+A master is a widget, typically a toplevel application window or a frame. It contains other widgets, called slaves.  
+You can think of a geometry manager taking control of the master widget and deciding how all the slave widgets will be displayed within.  
+
+The geometry manager collects information about the **slaves** in the **master** and the total size of the master.  
+It asks each **slave** widget for its natural size, i.e., how large it would ideally be displayed.  
+The geometry manager's internal algorithm calculates the area each **slave** will be allocated (if any!).  
+The **slave** is then responsible for rendering itself within that particular rectangle.  
+And of course, we repeat the whole thing whenever the size of the master changes (e.g., because the toplevel window was resized), 
+the natural size of a slave changes (e.g., because we've changed the text in a label), or any geometry manager parameters change (e.g., like row, column, or sticky).
+
+Each master can be managed by only one geometry manager, different masters can have different geometry managers.
+
+We've been assuming that slave widgets are the immediate children of their master in the widget hierarchy.  
+While this is usually the case, and mostly there's no good reason to do it any other way, it's also possible (with some restrictions) to get around(绕过) this.
 
 
 
