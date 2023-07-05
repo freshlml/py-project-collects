@@ -149,5 +149,31 @@ We've been assuming that slave widgets are the immediate children of their maste
 While this is usually the case, and mostly there's no good reason to do it any other way, it's also possible (with some restrictions) to get around(绕过) this.
 
 
+# Event Handling
+As with most user interface toolkits, Tk runs an *event loop* that receives events from the operating system.  
+These are things like button presses, keystrokes, mouse movement, window resizing, and so on.  
+
+Generally, Tk takes care of managing this event loop for you. It will figure out what widget the event applies to (did a user click on this button? if a key was pressed, which textbox had the focus?), 
+and dispatch(调度) it accordingly(依照于此).  
+Individual widgets know how to respond to events; for example, a button might change color when the mouse moves over it and revert(恢复) back when the mouse leaves.  
+
+It's critical(关键的) in event-driven applications that the event loop not be blocked(阻塞). The event loop should run continuously(连续不断地), normally executing dozens(数十) of steps per second.  
+At every step, it processes an event. If your program is performing a long operation, it can potentially(潜在地) block the event loop.  
+In that case, no events would be processed, no drawing would be done, and it would appear as if your application is frozen.  
+There are many ways to avoid this happening, mostly related to the structure of your application. We'll discuss this in more detail in a later chapter.  
+
+## Command Callbacks
+You often want your program to **handle some event in a particular way**, e.g., do something when a button is pushed.  
+For those events that are most frequently customized, the widget will allow you to specify a callback as a widget configuration option(eg, the `command` option of the *button*).  
+
+## Event, Bind, Unbind, Virtual Event
+For events that don't have a widget-specific command callback associated with them, you can use Tk's `bind` to capture any event and then execute an arbitrary piece of code.  
+more details see the doc of `bind`.  
+```python
+from tkinter import *
+Misc.bind(...)
+```
+
+
 
 
