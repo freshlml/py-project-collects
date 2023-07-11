@@ -103,6 +103,12 @@ The following are some of the most useful methods:
 - *winfo_rootx*, *winfo_rooty*: the position of the top-left corner of the widget relative to the entire screen
 - *winfo_vieweable*: whether the widget is displayed or hidden (all its ancestors in the hierarchy must be viewable for it to be viewable)
 
+## Themed Widgets
+ttk module provides the themed widgets, which lets you control many other aspects of their appearance or behavior. 
+In classic Tk, you could provide a wide range of options to finely control every aspect of an individual widget's behavior, 
+e.g., foreground color, background color, font, highlight thickness, selected foreground color, and padding. 
+When using the new themed widgets, these changes are made by modifying styles, not adding options to each widget.  
+
 
 # Geometry Management
 Widgets don't appear on the screen just by creating them.  
