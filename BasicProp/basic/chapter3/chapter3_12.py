@@ -11,7 +11,7 @@ print(a is b)  # True, 程序中所有的True均为同一个对象
 # if操作(或者叫if语句): if 任意类型对象; if 其他运算返回的对象
 # (对象真值测试) 1.触发__bool__协议方法: return __bool__(); 2.触发__len__协议方法: return __len__() > 0; 3.return obj is not None
 #
-if 1 + 0:  # +运算返回class int类型对象，再执行if操作
+if 1 + 0:  # 先执行`+`运算得到 class int 对象，再执行if操作
     pass
 
 # class int 类型 __bool__ 协议方法: return 整数值 != 0

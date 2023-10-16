@@ -27,10 +27,7 @@ def consume_key(o1):
         c = str(o1)
     elif isinstance(o1, str):
         if len(o1) >= 1:
-            if len(o1) == 1:
-                c = o1
-            else:
-                c = o1[0]
+            c = o1[0]
     if c is None:
         return -1
     return ord(c)
