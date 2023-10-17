@@ -3,7 +3,7 @@
 # 生成器函数
 def generate(n: int = 5):
     for i in range(n):
-        # print("测试是否函数调用时函数代码是否会执行")
+        # print("测试generate函数调用时函数代码是否会执行")
         yield i
         # print(i)  # 测试在哪里挂起
 

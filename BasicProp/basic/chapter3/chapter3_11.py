@@ -65,7 +65,7 @@ print(sp is hm)       # True
 #
 i = 1
 j = i
-i += 1  # class int 未定义 __iadd__ 协议方法，则触发__add__协议方法: i = i.__add__(1)
+i += 1  # class int 未定义 __iadd__ 协议方法，则触发__add__协议方法: i = int.__add__(i, 1)
 print(i)        # 2
 print(j)        # 1
 print(i is j)   # False
@@ -73,7 +73,7 @@ print(i is j)   # False
 # class list 定义了 __iadd__协议方法
 lst = [1, 2]
 m = lst
-lst += 'new'      # lst = lst.__iadd__("new") { self.extend("new"); return self }
+lst += 'new'      # lst = list.__iadd__(lst, "new") { self.extend("new"); return self }
 print(lst)        # [1, 2, 'n', 'e', 'w']
 print(m)          # [1, 2, 'n', 'e', 'w']
 print(m is lst)   # True
