@@ -53,7 +53,7 @@ print(b.attr1)  # 任意
 # attr1属性是B的mro路径中的属性，并且是描述器，调用attr1.__get__(None, B) with instance is None
 print(B.attr1)  # class B
 
-# attr1属性是C的mro路径中的属性，并且使描述器，调用attr1.__get__(None, B) with instance is None
+# attr1属性是C的mro路径中的属性，并且是描述器，调用attr1.__get__(None, B) with instance is None
 print(C.attr1)  # class C
 
 print("--------------1----------------")
@@ -62,7 +62,7 @@ print("--------------1----------------")
 # 链式属性描述器
 class GetterSetter(object):
     def __get__(self, obj, objtype):
-        if obj is None:
+        if obj is not None:
             return obj.__gs
         return "Tag"
 
@@ -82,7 +82,7 @@ class Cls(object, metaclass=Meta):
 
 print(Meta.__dict__)  # 'gs': __main__.GetterSetter object
 print(Cls.__dict__)  # 'gs': '1'
-print(Cls.gs)  # Tag
+# print(Cls.gs)  #
 
 print("--------------2----------------")
 

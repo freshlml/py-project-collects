@@ -50,7 +50,7 @@ print(type(a))  # class A
 print(type(A.m))  # class Decorator
 print(type(a.m))  # class Decorator
 print(A.m is a.m)  # True
-print(a.m.original)  # class A def m
+print(a.m.original)  # function A.m
 
 # 1、A.m, 触发__get__(m, None, A) 2、m(a, "pp1", "pp2") 3、Decorator.__call__(m, a, "pp1", "pp2") 4、A.m(a, "pp1", "pp2")
 print(A.m(a, "pp1", "pp2"))  # ('pp1', 'pp2')
@@ -90,7 +90,7 @@ class AA(object):
 
 
 aa = AA()
-print(aa.m)  # funcDecoratorImpl
+print(aa.m)  # bound method funcDecoratorImpl
 # 1.aa.m('oo1', 'oo2'); 2.funcDecoratorImpl(aa, 'oo1', 'oo2'); 3.AA.m(aa, 'oo1', 'oo2')
 print(aa.m("oo1", "oo2"))  # ('oo1', 'oo2')
 
@@ -121,7 +121,7 @@ class B(object):    # 1.class执行:B = class type，2.@ClzDecorator执行:B = C
 
 
 print(type(B))  # class ClzDecorator
-print(B.original)  # B,class type
+print(B.original)  # class B
 b = B("参数1", "参数2")  # 触发ClzDecorator.__call__(B, "参数1", "参数2")
 print(type(b))  # class B
 print(b.mm())  # ('参数1', '参数2')
