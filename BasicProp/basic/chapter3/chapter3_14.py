@@ -143,10 +143,11 @@ class A(object):
 
 # iter函数、next函数（@see Python 3.8标准库参考）
 a = A()
-a_iter = iter(a)     # 接收一个Iterable，调用iterable.__iter__方法返回
+# a.__iter__ = lambda: None
+a_iter = iter(a)     # 接收一个Iterable，触发 __iter__ 协议方法
 print(type(a_iter))  # <class '__main__.B'>
 
-n = next(a_iter)   # 接收一个Iterator(本质上只要定义了__next__方法即可)，调用__next__方法获取下一个元素
+n = next(a_iter)   # 接收一个Iterator，触发 __next__ 协议方法迭代元素
 print(n)
 # next(a_iter)     # StopIteration
 
