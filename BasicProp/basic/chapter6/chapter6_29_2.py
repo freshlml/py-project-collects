@@ -12,6 +12,7 @@ class AttrDescriptor(object):
         if instance is not None:
             try:
                 # return instance.__name
+                # return instance.__dict__[name]
                 return getattr(instance, "__" + self.name)
             except AttributeError:
                 return None
@@ -20,11 +21,16 @@ class AttrDescriptor(object):
     def __set__(self, instance, v):
         if v:
             # instance.__name = v
+            # instance.__dict__[name] = v
             setattr(instance, "__" + self.name, v)
 
     def __delete__(self, instance):
-        # del instance.__name
-        delattr(instance, "__" + self.name)
+        try:
+            # del instance.__name
+            # del instance.__dict__[name]
+            delattr(instance, "__" + self.name)
+        except KeyError:
+            return None
 
 
 class C(object):
