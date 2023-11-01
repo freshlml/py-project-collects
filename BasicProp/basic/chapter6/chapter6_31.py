@@ -90,6 +90,7 @@ class AA(object):
 
 
 aa = AA()
+print(AA.m)  # funcDecoratorImpl
 print(aa.m)  # bound method funcDecoratorImpl
 # 1.aa.m('oo1', 'oo2'); 2.funcDecoratorImpl(aa, 'oo1', 'oo2'); 3.AA.m(aa, 'oo1', 'oo2')
 print(aa.m("oo1", "oo2"))  # ('oo1', 'oo2')

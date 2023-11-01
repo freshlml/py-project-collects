@@ -16,7 +16,7 @@ class AttrDescriptor(object):
                 return getattr(instance, "__" + self.name)
             except AttributeError:
                 return None
-        return owner
+        return self
 
     def __set__(self, instance, v):
         if v:
@@ -57,10 +57,10 @@ print(b.__dict__)  # {'__attr1': '任意'}
 print(b.attr1)  # 任意
 
 # attr1属性是B的mro路径中的属性，并且是描述器，调用attr1.__get__(None, B) with instance is None
-print(B.attr1)  # class B
+print(B.attr1)  # attr1 AttrDescriptor
 
 # attr1属性是C的mro路径中的属性，并且是描述器，调用attr1.__get__(None, B) with instance is None
-print(C.attr1)  # class C
+print(C.attr1)  # attr1 AttrDescriptor
 
 print("--------------1----------------")
 

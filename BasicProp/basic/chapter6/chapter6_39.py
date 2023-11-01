@@ -1,7 +1,7 @@
 
 
-# 如果类指定了metaclass, 则其metaclass必须是其基类的metaclass的子类，当存在基类时
-# 如果类未指定metaclass, 则从其基类获取metaclass，当存在基类时。如果没有基类，则metaclass默认指向class type
+# 如果类指定了metaclass, 则其metaclass必须是其基类的metaclass的子类(当存在基类时)
+# 如果类未指定metaclass, 则从其基类获取metaclass(当存在基类时)。如果没有基类，则metaclass默认指向class type
 # 类的metaclass指向T，类的__class__指针就指向T，即类的类型为T
 class QMeta(type):
     attr = "1"
