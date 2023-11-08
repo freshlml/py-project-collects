@@ -43,7 +43,7 @@ print(fm.configure())
 # Border
 #   1. You can display a border by setting `borderwidth` configuration option(which defaults to `0`, i.e., no border),
 #      and the `relief` option, which specifies the visual appearance of the border.
-#   2. If the Frame contains nothing widgets, `borderwidth` no effect?
+#   2. If the Frame contains nothing widgets, `borderwidth` no effect? todo
 #
 #   borderwidth value: `350` means 350 pixels, `"350c"` means 350 centimeters ...
 #   relief value: `flat` (default), `raised`, `sunken`, `solid`, `ridge`, or `groove`. (constants.py: SUNKEN='sunken')
