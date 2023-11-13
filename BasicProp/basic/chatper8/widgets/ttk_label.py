@@ -12,7 +12,8 @@ root.rowconfigure(0, weight=1)
 
 
 # 1. Label is a widget that displays text or images, typically users will just view but not otherwise interact(交互) with
-lb = ttk.Label(fm, text="文本本\n本本本", borderwidth="10", relief=RIDGE, padding=(20, 20, 20, 20), background="red", anchor="e", width=50)
+lb = ttk.Label(fm, text="文本本\n本本本", borderwidth="10", relief=RIDGE, padding=(5, 5, 5, 5), background="red",
+               anchor="e", width=50)
 lb.grid(column=0, row=0, sticky=(W, E, N, S))
 
 fm.columnconfigure(0, weight=1)
@@ -55,14 +56,14 @@ print(lb.configure())
 #      "top"-display text in the top of image, "bottom"-display text in the bottom of image,
 #      "left"-display text in the left of image, "right"-display text in the right of image.
 #
-# width (无 height 属性和 lineheight 属性)
-#   1. Specify the explicit width of the box (not the width of Label).
-#      If the box is less than the box-size required for its contents, the remainder contents is hidden.
-#      If the box is large than the box-size required for its contents, there are some space exists.
+# width (无 height, lineheight)
+#   1. Specify the explicit width of the contents-box (not the width of Label).
+#      If the size of contents-box is less than the size of min-required-contents-box, the remainder contents is hidden.
+#      If the size of contents-box is less than the size of min-required-contents-box, there are some space exists.
 #   2. justify: horizontal alignment of text, when width is greater than the length of the text. no effect? todo
 #      "left", "center" or "right".
-#   3. anchor: 文本对齐，when the box is large than the box-size required for its contents. default value is 'w'.
-#      "n" (north), "ne" (north-east), "e", "se", "s", "sw", "w", "nw" or "center"
+#   3. anchor: align，when the contents-box is large than the min-required-contents-box. default value is 'w'.
+#      "n" (north), "ne" (north-east), "e", "se", "s", "sw", "w", "nw", or "center"
 #
 # padding
 #   The `padding` configuration option is used to request extra space around the inside of the widget.
