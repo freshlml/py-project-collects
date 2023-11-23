@@ -59,7 +59,7 @@ print(lb.configure())
 # width (无 height, lineheight)
 #   1. Specify the explicit width of the contents-box (not the width of Label).
 #      If the size of contents-box is less than the size of min-required-contents-box, the remainder contents is hidden.
-#      If the size of contents-box is less than the size of min-required-contents-box, there are some space exists.
+#      If the size of contents-box is larger than the size of min-required-contents-box, there are some space exists.
 #   2. justify: horizontal alignment of text, when width is greater than the length of the text. no effect? todo
 #      "left", "center" or "right".
 #   3. anchor: align，when the contents-box is large than the min-required-contents-box. default value is 'w'.
@@ -81,7 +81,7 @@ print(lb.configure())
 #   relief value: `flat` (default), `raised`, `sunken`, `solid`, `ridge`, or `groove`. (constants.py: SUNKEN='sunken')
 #
 # style
-#   Frames have a `style` configuration option, which is common to all of the themed widgets.
+#   Labels have a `style` configuration option, which is common to all of the themed widgets.
 #   This lets you control many other aspects of their appearance or behavior.
 #
 # underline
@@ -93,5 +93,7 @@ print(lb.configure())
 # Color
 #   1. `foreground` and `background` configuration options. set the foreground and background color.
 #
+# state, todo
+# takefocus, cursor, class, todo
 
 root.mainloop()

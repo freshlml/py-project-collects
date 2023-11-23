@@ -51,7 +51,8 @@ print(fm.configure())
 # style
 #   Frames have a `style` configuration option, which is common to all of the themed widgets.
 #   This lets you control many other aspects of their appearance or behavior.
-
+#
+# takefocus, cursor, class, todo
 
 root.mainloop()
 
