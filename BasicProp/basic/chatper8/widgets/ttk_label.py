@@ -13,7 +13,7 @@ root.rowconfigure(0, weight=1)
 
 # 1. Label is a widget that displays text or images, typically users will just view but not otherwise interact(交互) with
 lb = ttk.Label(fm, text="文本本\n本本本", borderwidth="10", relief=RIDGE, padding=(5, 5, 5, 5), background="red",
-               anchor="e", width=50)
+               anchor="e", width=50, state="normal")
 lb.grid(column=0, row=0, sticky=(W, E, N, S))
 
 fm.columnconfigure(0, weight=1)
@@ -93,7 +93,20 @@ print(lb.configure())
 # Color
 #   1. `foreground` and `background` configuration options. set the foreground and background color.
 #
-# state, todo
+# state
+#   1. All themed widgets maintain an internal state, a series of binary flags. Each flag can either be set or cleared.
+#      b.state(['disabled'])          # set the disabled flag
+#      b.state(['!disabled'])         # clear the disabled flag
+#      b.instate(['disabled'])        # true if disabled, else false
+#      b.instate(['!disabled'])       # true if not disabled, else false
+#      b.instate(['!disabled'], cmd)  # execute 'cmd' if not disabled
+#   2. The full list of state flags available to themed widgets is:
+#      active, disabled, focus, pressed, selected, background, readonly, alternate, and invalid.
+#      1). disable flag: not respond to mouse movements, mouse pressed...
+#      todo
+#   3. While all widgets have the same set of state flags, not all states are meaningful for all widgets.
+#   4. `state` configuration option. 'normal' (等价于 b.state(['!disabled']) ), 'disable' ( 等价于 b.state(['disabled']) ).
+#
 # takefocus, cursor, class, todo
 
 root.mainloop()

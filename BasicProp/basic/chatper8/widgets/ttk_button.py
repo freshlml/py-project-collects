@@ -36,13 +36,10 @@ print(bt.configure())
 'class': ('class', '', '', '', '')}
 '''
 # callback
-#   1. Using `command` configuration option specify the callback.
+#   1. The script provided by `command` configuration option is evaluated when a user presses the button.
 #   2. `default`: If "active", this is a "default" button for the window,
 #      i.e. the one that will be invoked if the user presses Return.
 #      Regular state is "normal" (You need to set up the event binding separately.)
-#
-# state
-#
 #
 # displays text
 #   1. The `text` configuration option set the displaying text of Button.
@@ -76,6 +73,20 @@ print(bt.configure())
 #
 # underline
 #   1. Specify the index of underline of the text, a int value, eg: 0 or 1 or ...
+#
+# state
+#   1. All themed widgets maintain an internal state, a series of binary flags. Each flag can either be set or cleared.
+#      b.state(['disabled'])          # set the disabled flag
+#      b.state(['!disabled'])         # clear the disabled flag
+#      b.instate(['disabled'])        # true if disabled, else false
+#      b.instate(['!disabled'])       # true if not disabled, else false
+#      b.instate(['!disabled'], cmd)  # execute 'cmd' if not disabled
+#   2. The full list of state flags available to themed widgets is:
+#      active, disabled, focus, pressed, selected, background, readonly, alternate, and invalid.
+#      1). disable flag: not respond to mouse movements, mouse pressed...
+#      todo
+#   3. While all widgets have the same set of state flags, not all states are meaningful for all widgets.
+#   4. `state` configuration option. 'normal' (等价于 b.state(['!disabled']) ), 'disable' ( 等价于 b.state(['disabled']) ).
 #
 # takefocus, cursor, class, todo
 
