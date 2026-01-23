@@ -1,210 +1,154 @@
-# 同时安装多个版本Python
-多个版本Python分别对应各自的安装路径，使用每一个版本的Python解释器执行py文件，会将当前Python解释器的标准库路径写入sys.path。
-注意: 不是将环境变量指向的Python版本的标准库路径写入sys.path
-### 系统安装了两个版本python
-C:\Users\DELL\AppData\Local\Programs\Python\Python37
+# 安装多个版本 Python
+link Vault/markdown/utils/py_install.md
+
+### python 3.7
+C:\Users\DELL\AppData\Local\Programs\Python\Python37  
 ```shell script
-C:\Users\DELL\AppData\Local\Programs\Python\Python37> ls
-Mode                 LastWriteTime         Length Name
-----                 -------------         ------ ----
-d-----         2021/9/16     15:41                DLLs
-d-----         2021/9/16     15:41                Doc
-d-----         2021/9/16     15:41                include
-d-----         2021/9/16     15:41                Lib
-d-----         2021/9/16     15:41                libs
-d-----         2022/7/17     17:10                Scripts
-d-----         2021/9/16     15:41                tcl
-d-----         2021/9/16     15:41                Tools
--a----         2019/3/25     22:26          30195 LICENSE.txt
--a----         2019/3/25     22:26         665470 NEWS.txt
--a----         2019/3/25     22:23          99856 python.exe
--a----         2019/3/25     22:22          58896 python3.dll
--a----         2019/3/25     22:22        3748368 python37.dll
--a----         2019/3/25     22:23          98320 pythonw.exe
--a----         2019/3/25     21:22          89752 vcruntime140.dll
-C:\Users\DELL\AppData\Local\Programs\Python\Python37> python -V  # 环境变量指向Python37
-Python 3.7.3
-C:\Users\DELL\AppData\Local\Programs\Python\Python37> pip -V     # 环境变量指向Python37
-pip 19.0.3 from c:\users\dell\appdata\local\programs\python\python37\lib\site-packages\pip (python 3.7)
 C:\Users\DELL\AppData\Local\Programs\Python\Python37> .\python.exe -V
 Python 3.7.3
+
+C:\Users\DELL\AppData\Local\Programs\Python\Python37> .\python.exe -m pip --version
+pip 19.0.3 from c:\users\dell\appdata\local\programs\python\python37\lib\site-packages\pip (python 3.7)
 ```
-C:\Users\DELL\AppData\Local\Programs\Python\Python310
+
+### python 3.10
+C:\Users\DELL\AppData\Local\Programs\Python\Python310  
 ```shell script
-C:\Users\DELL\AppData\Local\Programs\Python\Python310> ls
-Mode                 LastWriteTime         Length Name
-----                 -------------         ------ ----
-d-----         2022/7/22      1:04                DLLs
-d-----         2022/7/22      1:04                Doc
-d-----         2022/7/22      1:04                include
-d-----         2022/7/22      1:04                Lib
-d-----         2022/7/22      1:04                libs
-d-----         2022/7/22      1:04                Scripts
-d-----         2022/7/22      1:04                tcl
-d-----         2022/7/22      1:04                Tools
--a----          2022/6/6     16:24          32763 LICENSE.txt
--a----          2022/6/6     16:25        1261162 NEWS.txt
--a----          2022/6/6     16:24         100336 python.exe
--a----          2022/6/6     16:24          63472 python3.dll
--a----          2022/6/6     16:24        4450288 python310.dll
--a----          2022/6/6     16:24          98800 pythonw.exe
--a----          2022/6/6     16:24          98224 vcruntime140.dll
--a----          2022/6/6     16:24          37256 vcruntime140_1.dll
 C:\Users\DELL\AppData\Local\Programs\Python\Python310> .\python.exe -V
 Python 3.10.5
+
+C:\Users\DELL\AppData\Local\Programs\Python\Python310> .\python.exe -m pip --version
+pip 22.0.4 from C:\Users\DELL\AppData\Local\Programs\Python\Python310\lib\site-packages\pip (python 3.10)
 ```
-### 使用Python37解释器执行sys_path_test.py
+
+### 使用 Python37 解释器执行 sys_path_test.py
 ```shell script
 C:\Users\DELL\AppData\Local\Programs\Python\Python37> .\python.exe D:\pyProjects\BasicProp\basic\chapter5\sys_path_test.py
-['D:\\pyProjects\\BasicProp\\basic\\chapter5',                                              # top_level_package(当前py文件所在目录)
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\python37.zip',                # 指向当前解释器的标准库路径
+['D:\\pyProjects\\BasicProp\\basic\\chapter5',                                              # top_level_package(当前 py 文件所在目录)
+'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\python37.zip', 
 'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\DLLs', 
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\lib', 
+'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\lib',                         # 指向当前解释器的标准库路径
 'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37', 
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages']
-sys.prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python37                           # 指向当前解释器的标准库路径
+'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages']          # 指向当前解释器的标准库第三方包路径
+sys.prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python37
 sys.base_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python37
 sys.exec_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python37
 sys.base_exec_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python37
 ```
-### 使用Python310解释器执行sys_path_test.py
+
+### 使用 Python310 解释器执行 sys_path_test.py
 ```shell script
 C:\Users\DELL\AppData\Local\Programs\Python\Python310> .\python.exe D:\pyProjects\BasicProp\basic\chapter5\sys_path_test.py
-['D:\\pyProjects\\BasicProp\\basic\\chapter5',                                               # top_level_package(当前py文件所在目录)
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python310\\python310.zip',               # 指向当前解释器的标准库路径
+['D:\\pyProjects\\BasicProp\\basic\\chapter5',                                               # top_level_package(当前 py 文件所在目录)
+'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python310\\python310.zip', 
 'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python310\\DLLs', 
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python310\\lib', 
+'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python310\\lib',                         # 指向当前解释器的标准库路径
 'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python310', 
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages']
-sys.prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python310                            # 指向当前解释器的标准库路径
+'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages']          # 指向当前解释器的标准库第三方包路径
+sys.prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python310
 sys.base_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python310
 sys.exec_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python310
 sys.base_exec_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python310
 ```
 
 # 虚拟环境
-### 通过venv创建虚拟环境
-* 需要python3.4版本以上?
-* 原理: 创建venv环境目录，并将相关目录写入项目的sys.path路径
+使用 python 标准库的 pip 安装第三方包，安装位置：python 安装目录\lib\site-packages。  
 
-### 使用标准库的Python解释器执行
+注意：不要使用标准库的 pip 安装第三方包，而是对每个项目创建虚拟环境，将项目依赖的第三包安装在各自的虚拟环境中。  
+
+### 创建 venv 虚拟环境
+需要 python 3.4 版本以上?   
+
+使用 pycharm 创建项目时，可以指定同时创建 venv 虚拟环境。本质上是使用 python 的 venv module：venv 实践。  
+
+### 使用虚拟环境的 python 解释器执行 sys_path_test.py
 ```shell script
-$ D:\pyProjects\BasicProp\basic\chapter5> python test.py
-'D:\\pyProjects\\BasicProp\\basic\\chapter5',                                     # top_level package
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\python37.zip',      # 指向当前解释器的标准库路径
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\DLLs',              
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\lib',               
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37',                    
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages' 
-sys.prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python37                 # 指向当前解释器的标准库路径
+(venv) PS D:\py-project-collects\BasicProp\venv\Scripts> .\python ..\..\basic\chapter5\sys_path_test.py
+['D:\\py-project-collects\\BasicProp\\basic\\chapter5',                          # top_level_package(当前 py 文件所在目录)
+'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\python37.zip', 
+'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\DLLs', 
+'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\lib',              # 虚拟环境指向的某一个版本 python 的标准库路径
+'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37', 
+'D:\\py-project-collects\\BasicProp\\venv',                                      # 虚拟环境的根目录
+'D:\\py-project-collects\\BasicProp\\venv\\lib\\site-packages']                  # 虚拟环境的 site-packages 目录，即虚拟环境的第三方包路径
+sys.prefix = D:\py-project-collects\BasicProp\venv
 sys.base_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python37
-sys.exec_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python37
+sys.exec_prefix = D:\py-project-collects\BasicProp\venv
 sys.base_exec_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python37
-!!!不会自动关联venv环境
 ```
-### 在pycharm中运行
+
+### 在 pycharm 中运行
+在 settings/Python/Interpreter 中可以配置用于执行 py 文件的 python 解释器，如可以配置使用标准库 python 解释器或者虚拟环境的 python 解释器。  
 ```shell script
-'D:\\pyProjects\\BasicProp\\basic\\chapter5',                                     # top_level package
-'D:\\pyProjects\\BasicProp',                                                      # 项目目录
-...pycharm的目录
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\python37.zip',      # 取自pyvenv.cfg的name
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\DLLs',              
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\lib',               
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37',                    
-'D:\\pyProjects\\BasicProp\\venv'                                                 # venv目录
-'D:\\pyProjects\\BasicProp\\venv\\lib\\site-packages'                             # venv的site-packages路径
-...pycharm的目录
-sys.prefix = D:\pyProjects\BasicProp\venv                                         
+# 将 settings/Python/Interpreter 配置成虚拟环境的 python 解释器后运行 sys_path_test.py
+D:\py-project-collects\BasicProp\venv\Scripts\python.exe D:\py-project-collects\BasicProp\basic\chapter5\sys_path_test.py 
+['D:\\py-project-collects\\BasicProp\\basic\\chapter5', 
+'D:\\py-project-collects\\BasicProp',                    # 项目根目录，pycharm 添加的，生产环境不一定可信...
+'C:\\Program Files\\JetBrains\\PyCharm 2025.3.1.1\\plugins\\python-ce\\helpers\\pycharm_display', 
+'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\python37.zip', 
+'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\DLLs', 
+'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\lib', 
+'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37', 
+'D:\\py-project-collects\\BasicProp\\venv', 
+'D:\\py-project-collects\\BasicProp\\venv\\lib\\site-packages', 
+'C:\\Program Files\\JetBrains\\PyCharm 2025.3.1.1\\plugins\\python-ce\\helpers\\pycharm_matplotlib_backend', 
+'C:\\Program Files\\JetBrains\\PyCharm 2025.3.1.1\\plugins\\python-ce\\helpers\\pycharm_altair_backend', 
+'C:\\Program Files\\JetBrains\\PyCharm 2025.3.1.1\\plugins\\python-ce\\helpers\\pycharm_plotly_backend']
+sys.prefix = D:\py-project-collects\BasicProp\venv
 sys.base_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python37
-sys.exec_prefix = D:\pyProjects\BasicProp\venv
+sys.exec_prefix = D:\py-project-collects\BasicProp\venv
 sys.base_exec_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python37
-!!!关联了venv环境
-```
-### 使用虚拟环境的python解释器运行
-```shell script
-(venv) D:\pyProjects\BasicProp\venv\Scripts>python ../../basic/chapter5/test.py
-'D:\\pyProjects\\BasicProp\\basic\\chapter5',                                     # top_level package
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\python37.zip',      # 取自pyvenv.cfg的name
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\DLLs',              
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\lib',               
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37',                    
-'D:\\pyProjects\\BasicProp\\venv'                                                 # venv目录
-'D:\\pyProjects\\BasicProp\\venv\\lib\\site-packages'                             # venv的site-packages路径
-sys.prefix = D:\pyProjects\BasicProp\venv
-sys.base_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python37
-sys.exec_prefix = D:\pyProjects\BasicProp\venv
-sys.base_exec_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python37
-!!!关联了venv环境
 ```
 
+# venv 实践
 
-# venv实例
+### 创建虚拟环境
+使用 python -m venv my_env 创建 venv 环境，将在当前命令行所在目录下创建一个 my_env 目录。  
 
-### 1.使用Python37解释器创建venv环境
-```shell script
-projectDir$ C:\Users\DELL\AppData\Local\Programs\Python\Python37\python.exe -m venv venv37
-```
-### 2.使用Python310解释器创建venv环境
-```shell script
-projectDir$ C:\Users\DELL\AppData\Local\Programs\Python\Python310\python.exe -m venv venv310
-```
-虚拟环境目录说明
+虚拟环境目录说明：
 ```
 my_env
   -Include
   -Lib
-    -site-packages          # 写入pip，setuptools等模块，后续安装的第三方依赖放置在此目录
-  -Scripts                  # 将当前python解释器,pip工具拷贝一份放到此目录
-  pyvenv.cfg                # 将当前解释器的标准库路径通过name属性关联
-
-虚拟环境标准库版本升级，第三方依赖被保留
-    使用更高版本的python解释器: python -m venv my_env --upgrade
-虚拟环境标准库版本回退
-    删除，使用低版本的python解释器重新创建，第三方依赖如何保留？
-
-note: python -m venv -h 查看命令帮助
+    -site-packages          # 默认将虚拟环境指向的 python 的标准库下的 site-packages 复制过来，后续安装的第三方依赖放置在此目录
+  -Scripts                  # 虚拟环境的 python 解释器，pip 包管理器等
+  pyvenv.cfg                # 配置虚拟环境指向的 python
 ```
+更新虚拟环境：python -m venv my_env --upgrade。可以使用版本更高的 python。可直接删除虚拟环境目录（当然，第三方依赖也会被删除）。  
 
-
-### 3.激活 (进入虚拟环境)
+### 激活虚拟环境
 ```shell script
-projectDir$                          cd my_env/Scripts/      # 进入Scripts目录
-projectDir/my_env/Scripts$           activate                # 执行activate脚本
-(my_env) projectDir/my_env/Scripts$                          # 可以看到，命令提示符切换到了my_env环境
-(my_env) projectDir/my_env/Scripts$  python -V               # 打印my_env环境的python版本
+PS D:\py-project-collects\BasicProp> .\venv\Scripts\activate  # 激活虚拟环境
+(venv) PS D:\py-project-collects\BasicProp>                   # 可以看到，命令提示符切换到了 venv 环境
+(venv) PS D:\py-project-collects\BasicProp> ./venv/Scripts/python --version    # 虚拟环境 python 解释器版本
 Python 3.7.3
 ```
 
-
-### 4.退出虚拟环境
+### 退出虚拟环境
 ```shell script
-(my_env) projectDir/my_env/Scripts$  deactivate     # 执行deactivate脚本
-projectDir/my_env/Scripts$                          # 可以看到，退出了虚拟环境
-
+(venv) PS D:\py-project-collects\BasicProp> ./venv/Scripts/deactivate    # 退出虚拟环境
+PS D:\py-project-collects\BasicProp>                                     # 可以看到，退出了虚拟环境
 ```
 
-
-### 5.第三方依赖的管理
+### 第三方依赖管理
+不要使用标准库的 pip 安装第三方包，而是在虚拟环境中安装。    
+```shell script
+PS D:\py-project-collects\BasicProp> .\venv\Scripts\activate  # 激活虚拟环境
+(venv) PS D:\py-project-collects\BasicProp> ./venv/Scripts/pip list                   # 列出虚拟环境已安装的第三方依赖
+(venv) PS D:\py-project-collects\BasicProp> ./venv/Scripts/pip show package_name      # 查看
+(venv) PS D:\py-project-collects\BasicProp> ./venv/Scripts/pip install package_name[==版本号]    # 在虚拟环境安装特定版本的依赖
+(venv) PS D:\py-project-collects\BasicProp> ./venv/Scripts/pip install --upgrade package_name   # 更新到最新版
+(venv) PS D:\py-project-collects\BasicProp> ./venv/Scripts/pip uninstall package_name   # 卸载
 ```
-(my_env) projectDir/my_env/Scripts$ pip install 依赖名称==版本号      # 在my_env环境安装特定版本的依赖 (python -m pip install ...这条命令会搜索到标准库的pip?是否存在歧义呢?)
-(my_env) projectDir/my_env/Scripts$ pip install --upgrade 依赖名称   # 更新到最新版
-(my_env) projectDir/my_env/Scripts$ pip uninstall 依赖名称s          # 卸载
-(my_env) projectDir/my_env/Scripts$ pip show 依赖名称                # 查看
-(my_env) projectDir/my_env/Scripts$ pip list                        # 列出已安装的
+注意，不要使用 ./venv/Scripts/pip install --upgrade pip 这样更新 pip。而是 ./venv/Scripts/python -m pip install --upgrade pip 这样来更新 pip。  
 
-pip install requests时，requests依赖的包也安装了，todo,requests的依赖关系如何维护
-当依赖相互缠绕时，警惕可能出现的依赖版本冲突问题？
+### 第三方依赖的协同
+每一个开发环境和线上环境都创建本地的 venv，pyvenv.cfg 中 name 指向相同的 python 版本。  
+
+将第三方依赖写到 requirements.txt 文件之中随代码一起提交给 git。使用命令可以安装 requirements.txt 文件之中的依赖。  
+
+```shell script
+(venv) PS D:\py-project-collects\BasicProp> ./venv/Scripts/pip freeze > requirements.txt  # 将第三方依赖写到 requirements.txt 文件
+
+PS D:\py-project-collects\BasicProp> ./venv/Scripts/pip install -r requirements.txt       # 安装 requirements.txt 文件中的依赖
 ```
-
-
-### 6.第三方依赖的协同
-```
-多个开发环境的协同，开发环境和线上环境的协同
-原理: 每一个开发环境和线上环境都创建本地的venv。1.pyvenv.cfg中name指向相同的python版本；2.通过依赖文件协同第三方依赖
-
-(my_env) projectDir/my_env/Scripts$ pip freeze > ../../requirements.txt       # 将依赖信息写到文件
-                                                                              # 将文件提交给git
-(my_env) projectDir/my_env/Scripts$ pip install -r ../../requirements.txt     # 安装文件中的依赖
-
-```
-
