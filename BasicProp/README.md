@@ -121,7 +121,7 @@ my_env
 PS D:\py-project-collects\BasicProp> .\venv\Scripts\activate  # 激活虚拟环境
 (venv) PS D:\py-project-collects\BasicProp>                   # 可以看到，命令提示符切换到了 venv 环境
 (venv) PS D:\py-project-collects\BasicProp> ./venv/Scripts/python --version    # 虚拟环境 python 解释器版本
-Python 3.7.3
+# 激活虚拟环境后，即出现 (venv)，无论在哪个目录，可直接使用 python 命令，pip 命令，它将定位到虚拟环境中的 python 和 pip 而不是系统环境变量指向的命令
 ```
 
 ### 退出虚拟环境
