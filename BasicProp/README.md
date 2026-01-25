@@ -29,7 +29,7 @@ C:\Users\DELL\AppData\Local\Programs\Python\Python37> .\python.exe D:\pyProjects
 'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\DLLs', 
 'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\lib',                         # 指向当前解释器的标准库路径
 'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37', 
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages']          # 指向当前解释器的标准库第三方包路径
+'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages']          # 指向当前解释器的标准库目录下的 site-packages 目录
 sys.prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python37
 sys.base_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python37
 sys.exec_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python37
@@ -44,7 +44,7 @@ C:\Users\DELL\AppData\Local\Programs\Python\Python310> .\python.exe D:\pyProject
 'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python310\\DLLs', 
 'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python310\\lib',                         # 指向当前解释器的标准库路径
 'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python310', 
-'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages']          # 指向当前解释器的标准库第三方包路径
+'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages']          # 指向当前解释器的标准库目录下的 site-packages 目录
 sys.prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python310
 sys.base_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python310
 sys.exec_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python310
@@ -70,7 +70,7 @@ sys.base_exec_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python310
 'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37\\lib',              # 虚拟环境指向的某一个版本 python 的标准库路径
 'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python37', 
 'D:\\py-project-collects\\BasicProp\\venv',                                      # 虚拟环境的根目录
-'D:\\py-project-collects\\BasicProp\\venv\\lib\\site-packages']                  # 虚拟环境的 site-packages 目录，即虚拟环境的第三方包路径
+'D:\\py-project-collects\\BasicProp\\venv\\lib\\site-packages']                  # 虚拟环境的 site-packages 目录用于安装第三方包
 sys.prefix = D:\py-project-collects\BasicProp\venv
 sys.base_prefix = C:\Users\DELL\AppData\Local\Programs\Python\Python37
 sys.exec_prefix = D:\py-project-collects\BasicProp\venv
