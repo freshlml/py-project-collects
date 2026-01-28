@@ -121,6 +121,9 @@ my_env
 PS D:\py-project-collects\BasicProp> .\venv\Scripts\activate  # 激活虚拟环境
 (venv) PS D:\py-project-collects\BasicProp>                   # 可以看到，命令提示符切换到了 venv 环境
 (venv) PS D:\py-project-collects\BasicProp> ./venv/Scripts/python --version    # 虚拟环境 python 解释器版本
+(venv) PS D:\py-project-collects\BasicProp> ./venv/Scripts/pip --version       # 虚拟环境 pip 版本
+pip 19.0.3 from d:\py-project-collects\basicprop\venv\lib\site-packages\pip (python 3.7)
+
 # 激活虚拟环境后，即出现 (venv)，无论在哪个目录，可直接使用 python 命令，pip 命令，它将定位到虚拟环境中的 python 和 pip 而不是系统环境变量指向的命令
 ```
 
@@ -131,7 +134,7 @@ PS D:\py-project-collects\BasicProp>                                     # 可�
 ```
 
 ### 第三方依赖管理
-不要使用标准库的 pip 安装第三方包，而是在虚拟环境中安装。    
+不要使用标准库的 pip 安装第三方包，而是在虚拟环境中安装。  
 ```shell script
 PS D:\py-project-collects\BasicProp> .\venv\Scripts\activate  # 激活虚拟环境
 (venv) PS D:\py-project-collects\BasicProp> ./venv/Scripts/pip list                   # 列出虚拟环境已安装的第三方依赖
